@@ -104,16 +104,17 @@ void mydraw (HDC hdc)
 					   image, &bi, DIB_RGB_COLORS);
 }
 
-void setpixel (unsigned char *ig, int w, int x, int y, int r, int g, int b)
-{
-	ig [3*(x + y*w) + 0] = b;
-	ig [3*(x + y*w) + 1] = g;
-	ig [3*(x + y*w) + 2] = r;
-}
+
 
 void lineDDA (int x1, int y1, int x2, int y2)
 {
 	int	dx, dy, steps, k;
+}
+void setpixel(unsigned char *ig, int w, int x, int y, int r, int g, int b)
+{
+	ig[3 * (x + y * w) + 0] = b;
+	ig[3 * (x + y * w) + 1] = g;
+	ig[3 * (x + y * w) + 2] = r;
 }
 
 void process (unsigned char *ig, long w, long h)
@@ -127,15 +128,237 @@ void process (unsigned char *ig, long w, long h)
 //	setpixel (ig, w, 11, 11, 255, 0, 0);
 
 
+
+	// y = h
+	// x = w 
+
+	// x = 360
+	// y = 240
+
 	for (y = 0; y < h; y ++)
-		for (x = 0; x < w; x ++) {
-			ig [3*(x + y*w) + 0] = 0;
-			ig [3*(x + y*w) + 1] = x%64;
-			ig [3*(x + y*w) + 2] = 0;
+	for (x = 0; x < w; x ++) {
+			setpixel(ig, w, x, y, 255, 255, 255);	
 		}
 
-//	lineDDA (5, 6, 120, 80);	// x1, y1, x2, y2
-//	lineDDA (5, 6, 120, 80);	// x1, y1, x2, y2
+	for (y = 0; y < 10; y++)
+		for (x = 120; x < 200; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+
+	for (y = 10; y < 30; y++)
+		for (x = 70; x < 120; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	
+	for (y = 10; y < 70; y++)
+		for (x = 120; x < 200; x++) {
+			setpixel(ig, w, x, y, 0, 180, 200);
+		}
+
+	for (y = 10; y < 30; y++)
+		for (x = 200; x < 250; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+
+	for (y = 30; y < 50; y++)
+		for (x = 70; x < 120; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 30; y < 50; y++)
+		for (x = 200; x <250; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 50; y < 70; y++)
+		for (x = 200; x <270; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 50; y < 70; y++)
+		for (x = 50; x < 120; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 30; y < 50; y++)
+		for (x =50 ; x <70; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 30; y < 50; y++)
+		for (x =50 ; x <70; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 30; y < 50; y++)
+		for (x = 250; x <270; x++) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+	for (y = 50; y < 70; y++)
+		for (x = 30; x <50; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 50; y < 70; y++)
+		for (x = 270; x <290; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 70; y < 90; y++)
+		for (x = 10; x <30; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 70; y < 90; y++)
+		for (x = 290; x <310; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 90; y < 110; y++)
+		for (x = 10; x <30; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 90; y < 110; y++)
+		for (x = 290; x <310; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 70; y < 90; y++)
+		for (x = 30; x <120; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 70; y < 90; y++)
+		for (x = 200; x <290; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 90; y < 110; y++)
+		for (x = 30; x <120; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 90; y < 110; y++)
+		for (x = 200; x <290; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 70; y < 90; y++)
+		for (x = 120; x <200; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 90; y < 110; y++)
+		for (x = 120; x <200; x++) {
+			setpixel(ig, w, x, y, 0, 180, 200);
+		}
+	for (y = 110; y < 190; y++)
+		for (x = 0; x <15; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 190; y++)
+		for (x = 305; x <320; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 130; y++)
+		for (x = 100; x <220; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 130; y < 150; y++)
+		for (x = 120; x <200; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 150; y < 180; y++)
+		for (x = 80; x <120; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 150; y < 180; y++)
+		for (x = 200; x <240; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 210; y++)
+		for (x = 30; x <45; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 210; y++)
+		for (x = 275; x <290; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 190; y < 220; y++)
+		for (x = 80; x <240; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 220; y < 230; y++)
+		for (x = 100; x <220; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 210; y++)
+		for (x = 30; x <45; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 180; y < 200; y++)
+		for (x = 290; x <310; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 180; y < 200; y++)
+		for (x = 15; x <30; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 250; y < 265; y++)
+		for (x = 90; x <230; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 200; y < 220; y++)
+		for (x = 30; x <45; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 200; y < 220; y++)
+		for (x = 275; x <290; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+
+	for (y = 220; y < 235; y++)
+		for (x = 260; x <275; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 220; y < 235; y++)
+		for (x = 45; x <60; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 235; y < 250; y++)
+		for (x = 245; x <260; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 235; y < 250; y++)
+		for (x = 60; x <75; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	
+	for (y = 250; y < 260; y++)
+		for (x = 230; x <245; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 250; y < 260; y++)
+		for (x = 75; x <90; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 260; y < 265; y++)
+		for (x = 215; x <230; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 260; y < 265; y++)
+		for (x = 90; x <105; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 130; y++)
+		for (x = 250; x <275; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 130; y++)
+		for (x = 45; x <70; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 0; y < 110; y++)
+		for (x = 120; x <130; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 0; y < 110; y++)
+		for (x = 190; x <200; x++) {
+			setpixel(ig, w, x, y, 0, 0, 0);
+		}
+	for (y = 110; y < 180; y++)
+		for (x = 15; x <30; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	for (y = 110; y < 180; y++)
+		for (x = 290; x <305; x++) {
+			setpixel(ig, w, x, y, 0, 0, 200);
+		}
+	
 }
 
 void initfbuffer (int w, int h)
@@ -186,8 +409,8 @@ LRESULT CALLBACK WndProc (HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
                                 case IDM_ABOUT  :   DialogBox (hInst, (LPCTSTR) IDD_ABOUTBOX, hWnd, (DLGPROC) About);
                                                     break;
 
-								case IDM_EXIT   :   initfbuffer (320, 240);
-													process (image, 320, 240);
+								case IDM_EXIT   :   initfbuffer (320, 280);
+													process (image, 320, 280);
 													hdc = GetDC (hWnd);
 													mydraw (hdc);
 													ReleaseDC (hWnd, hdc);
