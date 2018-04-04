@@ -122,242 +122,218 @@ void process (unsigned char *ig, long w, long h)
 //	int	r = 0, g = 255, b = 0;
 	int x, y, k;
 	
-//	setpixel (ig, w, 10, 10, 255, 0, 0);
-//	setpixel (ig, w, 11, 10, 255, 0, 0);
-//	setpixel (ig, w, 10, 11, 255, 0, 0);
-//	setpixel (ig, w, 11, 11, 255, 0, 0);
+/
 
+	// h = hight  = y  = 0-280
+	// w = length = x  = 0-320
 
+	for (y = 0; y < h; y++) {
+		for (x = 0; x < w; x++) {
 
-	// y = h
-	// x = w 
+			setpixel(ig, w, x, y, 255, 255, 255);
 
-	// x = 360
-	// y = 240
-
-	for (y = 0; y < h; y ++)
-	for (x = 0; x < w; x ++) {
-			setpixel(ig, w, x, y, 255, 255, 255);	
-		}
-
-	for (y = 0; y < 10; y++)
-		for (x = 120; x < 200; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-
-	for (y = 10; y < 30; y++)
-		for (x = 70; x < 120; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	
-	for (y = 10; y < 70; y++)
-		for (x = 120; x < 200; x++) {
-			setpixel(ig, w, x, y, 0, 180, 200);
-		}
-
-	for (y = 10; y < 30; y++)
-		for (x = 200; x < 250; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-
-	for (y = 30; y < 50; y++)
-		for (x = 70; x < 120; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 30; y < 50; y++)
-		for (x = 200; x <250; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 50; y < 70; y++)
-		for (x = 200; x <270; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 50; y < 70; y++)
-		for (x = 50; x < 120; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 30; y < 50; y++)
-		for (x =50 ; x <70; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 30; y < 50; y++)
-		for (x =50 ; x <70; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 30; y < 50; y++)
-		for (x = 250; x <270; x++) {
+					
+			if (y >= 0 && y<=10 && x >= 120 && x <= 200) {
 				setpixel(ig, w, x, y, 0, 0, 0);
 			}
-	for (y = 50; y < 70; y++)
-		for (x = 30; x <50; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 50; y < 70; y++)
-		for (x = 270; x <290; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 70; y < 90; y++)
-		for (x = 10; x <30; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 70; y < 90; y++)
-		for (x = 290; x <310; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 90; y < 110; y++)
-		for (x = 10; x <30; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 90; y < 110; y++)
-		for (x = 290; x <310; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 70; y < 90; y++)
-		for (x = 30; x <120; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 70; y < 90; y++)
-		for (x = 200; x <290; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 90; y < 110; y++)
-		for (x = 30; x <120; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 90; y < 110; y++)
-		for (x = 200; x <290; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 70; y < 90; y++)
-		for (x = 120; x <200; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 90; y < 110; y++)
-		for (x = 120; x <200; x++) {
-			setpixel(ig, w, x, y, 0, 180, 200);
-		}
-	for (y = 110; y < 190; y++)
-		for (x = 0; x <15; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 190; y++)
-		for (x = 305; x <320; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 130; y++)
-		for (x = 100; x <220; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 130; y < 150; y++)
-		for (x = 120; x <200; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 150; y < 180; y++)
-		for (x = 80; x <120; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 150; y < 180; y++)
-		for (x = 200; x <240; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 210; y++)
-		for (x = 30; x <45; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 210; y++)
-		for (x = 275; x <290; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 190; y < 220; y++)
-		for (x = 80; x <240; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 220; y < 230; y++)
-		for (x = 100; x <220; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 210; y++)
-		for (x = 30; x <45; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 180; y < 200; y++)
-		for (x = 290; x <310; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 180; y < 200; y++)
-		for (x = 15; x <30; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 250; y < 265; y++)
-		for (x = 90; x <230; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 200; y < 220; y++)
-		for (x = 30; x <45; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 200; y < 220; y++)
-		for (x = 275; x <290; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
+			else if (y >= 10 && y <= 30 && x >= 70 && x <= 120) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 10 && y <= 70 && x >= 120 && x <= 200) {
+				setpixel(ig, w, x, y, 0, 180, 200);
+			}
+					
+			else if (y >= 10 && y <= 30 && x >= 200 && x <= 250) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+		
+			else if (y >= 30 && y <= 50 && x >= 70 && x <= 120) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			else if (y >= 30 && y <= 50 && x >= 200 && x <= 250) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
 
-	for (y = 220; y < 235; y++)
-		for (x = 260; x <275; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 220; y < 235; y++)
-		for (x = 45; x <60; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 235; y < 250; y++)
-		for (x = 245; x <260; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 235; y < 250; y++)
-		for (x = 60; x <75; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
+			else if (y >= 50 && y <= 70 && x >= 200 && x <= 270) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			else if (y >= 50 && y <= 70 && x >= 50 && x <= 120) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			
+			else if (y >= 30 && y <= 50 && x >= 50 && x <= 70) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 30 && y <= 50 && x >= 50 && x <= 70) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 30 && y <= 50 && x >= 250 && x <= 270) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 50 && y <= 70 && x >= 30 && x <= 50) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 50 && y <= 70 && x >= 270 && x <= 290) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 70 && y <= 90 && x >= 10 && x <= 30) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 70 && y <= 90 && x >= 290 && x <= 310) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 90 && y <= 110 && x >= 10 && x <= 30) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 90 && y <= 110 && x >= 290 && x <= 310) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
 	
-	for (y = 250; y < 260; y++)
-		for (x = 230; x <245; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
+			else if (y >= 70 && y <= 90 && x >= 30 && x <= 120) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			else if (y >= 70 && y <= 90 && x >= 200 && x <= 290) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			else if (y >= 90 && y <= 110 && x >= 30 && x <= 120) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			else if (y >= 90 && y <= 110 && x >= 200 && x <= 290) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			//
+			else if (y >= 70 && y <= 90 && x >= 100 && x <= 200) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 90 && y <= 110 && x >= 120 && x <= 200) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			
+			else if (y >= 110 && y <= 190 && x >= 0 && x <= 15) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 110 && y <= 190 && x >= 305 && x <= 320) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 110 && y <= 130 && x >= 100 && x <= 220) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 130 && y <= 150 && x >= 120 && x <= 200) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 150 && y <= 180 && x >= 80 && x <= 120) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 150 && y <= 180 && x >= 200 && x <= 240) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 110 && y <= 210 && x >= 30 && x <= 45) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 110 && y <= 210 && x >= 275 && x <= 290) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 190 && y <= 220 && x >= 80 && x <= 240) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 220 && y <= 230 && x >= 100 && x <= 220) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 110 && y <= 210 && x >= 30 && x <= 45) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 180 && y <= 200 && x >= 290 && x <= 310) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 180 && y <= 200 && x >= 15 && x <= 30) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 250 && y <= 265 && x >= 90 && x <= 230) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 200 && y <= 220 && x >= 30 && x <= 45) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 200 && y <= 220 && x >= 275 && x <= 290) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 220 && y <= 235 && x >= 260 && x <= 275) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 220 && y <= 235 && x >= 45 && x <= 60) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 235 && y <= 250 && x >= 245 && x <= 260) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 235 && y <= 250 && x >= 60 && x <= 75) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 250 && y <= 260 && x >= 230 && x <= 245) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+		
+			else if (y >= 250 && y <= 260 && x >= 75 && x <= 90) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 260 && y <= 265 && x >= 215 && x <= 230) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+				
+			else if (y >= 260 && y <= 265 && x >= 90 && x <= 105) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 110 && y <= 130 && x >= 250 && x <= 275) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			else if (y >= 110 && y <= 130 && x >= 45 && x <= 70) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+
+			else if (y >= 0 && y <= 110 && x >= 120 && x <= 130) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 0 && y <= 110 && x >= 190 && x <= 200) {
+				setpixel(ig, w, x, y, 0, 0, 0);
+			}
+			
+			else if (y >= 110 && y <= 180 && x >= 15 && x <= 30) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+		
+			else if (y >= 110 && y <= 180 && x >= 290 && x <= 305) {
+				setpixel(ig, w, x, y, 0, 0, 200);
+			}
+			
+
+
 		}
-	for (y = 250; y < 260; y++)
-		for (x = 75; x <90; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 260; y < 265; y++)
-		for (x = 215; x <230; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 260; y < 265; y++)
-		for (x = 90; x <105; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 130; y++)
-		for (x = 250; x <275; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 130; y++)
-		for (x = 45; x <70; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 0; y < 110; y++)
-		for (x = 120; x <130; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 0; y < 110; y++)
-		for (x = 190; x <200; x++) {
-			setpixel(ig, w, x, y, 0, 0, 0);
-		}
-	for (y = 110; y < 180; y++)
-		for (x = 15; x <30; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
-	for (y = 110; y < 180; y++)
-		for (x = 290; x <305; x++) {
-			setpixel(ig, w, x, y, 0, 0, 200);
-		}
+	}
+
 	
 }
 
