@@ -1,0 +1,5 @@
+﻿  simplewin32.cpp
+e:\cg\lab01\simplewin32.cpp(147): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\cg\lab01\simplewin32.cpp(150): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\cg\lab01\simplewin32.cpp(153): error C2660: 'LineDDA': function does not take 4 arguments
+  c:\program files (x86)\windows kits\10\include\10.0.16299.0\um\wingdi.h(4480): note: see declaration of 'LineDDA'

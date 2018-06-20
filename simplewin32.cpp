@@ -103,236 +103,57 @@ void mydraw (HDC hdc)
 	SetDIBitsToDevice (hdc, 0, 0, cx, cy, 0, 0, 0, cy, 
 					   image, &bi, DIB_RGB_COLORS);
 }
-
-
-
-void lineDDA (int x1, int y1, int x2, int y2)
-{
-	int	dx, dy, steps, k;
-}
-void setpixel(unsigned char *ig, int w, int x, int y, int r, int g, int b)
+void setpixel(unsigned char *ig, long w, int x, int y, int r, int g, int b)
 {
 	ig[3 * (x + y * w) + 0] = b;
 	ig[3 * (x + y * w) + 1] = g;
 	ig[3 * (x + y * w) + 2] = r;
 }
 
+
+
+void lineDDA (int x1, int y1, int x2, int y2)
+{
+	/* 
+	int	dx, dy, steps, k;
+	double xincrement, yincrement;
+	double x, y;
+	dx = x2 - x1;
+	dy = y2 - y1;
+
+	steps = (abs(dx) > abs(dy) ? abs(dx) : abs(dy));
+	xincrement = (double)dx / steps;
+	yincrement = (double)dy / steps;
+	x = x1;
+	y = y1;
+
+//	setpixel((int)(x+0.5),(int)(y+0.5),0,0,0,0,0,0);
+	for (k = 0; k <= steps; k++) {
+		x = x + xincrement;
+		y = y + yincrement;
+	//setpixel((int)(x + 0.5), (int)(y + 0.5), 0, 0, 0,0,0,0);
+	}
+	*/
+}
+
 void process (unsigned char *ig, long w, long h)
 {
-//	int	r = 0, g = 255, b = 0;
-	int x, y, k;
-	
-/
 
-	// h = hight  = y  = 0-280
-	// w = length = x  = 0-320
+	int x0 = 10, x1 = 100, dx0 = 5, dx1 = 20, y0 = 10, y1 = 100, dy0 = 20, dy1 = -5, ax = -155, ay = -165;
+	int bx = 240, by = 235, cx = 5, cy = 20, dx = 10, dy = 10;
 
-	for (y = 0; y < h; y++) {
-		for (x = 0; x < w; x++) {
+	float v, u, xq,yq, xqq, yqq;
 
-			setpixel(ig, w, x, y, 255, 255, 255);
-
-					
-			if (y >= 0 && y<=10 && x >= 120 && x <= 200) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 10 && y <= 30 && x >= 70 && x <= 120) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 10 && y <= 70 && x >= 120 && x <= 200) {
-				setpixel(ig, w, x, y, 0, 180, 200);
-			}
-					
-			else if (y >= 10 && y <= 30 && x >= 200 && x <= 250) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-		
-			else if (y >= 30 && y <= 50 && x >= 70 && x <= 120) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			else if (y >= 30 && y <= 50 && x >= 200 && x <= 250) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-
-			else if (y >= 50 && y <= 70 && x >= 200 && x <= 270) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			else if (y >= 50 && y <= 70 && x >= 50 && x <= 120) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			
-			else if (y >= 30 && y <= 50 && x >= 50 && x <= 70) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 30 && y <= 50 && x >= 50 && x <= 70) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 30 && y <= 50 && x >= 250 && x <= 270) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 50 && y <= 70 && x >= 30 && x <= 50) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 50 && y <= 70 && x >= 270 && x <= 290) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 70 && y <= 90 && x >= 10 && x <= 30) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 70 && y <= 90 && x >= 290 && x <= 310) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 90 && y <= 110 && x >= 10 && x <= 30) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 90 && y <= 110 && x >= 290 && x <= 310) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-	
-			else if (y >= 70 && y <= 90 && x >= 30 && x <= 120) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			else if (y >= 70 && y <= 90 && x >= 200 && x <= 290) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			else if (y >= 90 && y <= 110 && x >= 30 && x <= 120) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			else if (y >= 90 && y <= 110 && x >= 200 && x <= 290) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			//
-			else if (y >= 70 && y <= 90 && x >= 100 && x <= 200) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 90 && y <= 110 && x >= 120 && x <= 200) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			
-			else if (y >= 110 && y <= 190 && x >= 0 && x <= 15) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 110 && y <= 190 && x >= 305 && x <= 320) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 110 && y <= 130 && x >= 100 && x <= 220) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 130 && y <= 150 && x >= 120 && x <= 200) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 150 && y <= 180 && x >= 80 && x <= 120) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 150 && y <= 180 && x >= 200 && x <= 240) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 110 && y <= 210 && x >= 30 && x <= 45) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 110 && y <= 210 && x >= 275 && x <= 290) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 190 && y <= 220 && x >= 80 && x <= 240) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 220 && y <= 230 && x >= 100 && x <= 220) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 110 && y <= 210 && x >= 30 && x <= 45) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 180 && y <= 200 && x >= 290 && x <= 310) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 180 && y <= 200 && x >= 15 && x <= 30) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 250 && y <= 265 && x >= 90 && x <= 230) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 200 && y <= 220 && x >= 30 && x <= 45) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 200 && y <= 220 && x >= 275 && x <= 290) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 220 && y <= 235 && x >= 260 && x <= 275) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 220 && y <= 235 && x >= 45 && x <= 60) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 235 && y <= 250 && x >= 245 && x <= 260) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 235 && y <= 250 && x >= 60 && x <= 75) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 250 && y <= 260 && x >= 230 && x <= 245) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-		
-			else if (y >= 250 && y <= 260 && x >= 75 && x <= 90) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 260 && y <= 265 && x >= 215 && x <= 230) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-				
-			else if (y >= 260 && y <= 265 && x >= 90 && x <= 105) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 110 && y <= 130 && x >= 250 && x <= 275) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			else if (y >= 110 && y <= 130 && x >= 45 && x <= 70) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-
-			else if (y >= 0 && y <= 110 && x >= 120 && x <= 130) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 0 && y <= 110 && x >= 190 && x <= 200) {
-				setpixel(ig, w, x, y, 0, 0, 0);
-			}
-			
-			else if (y >= 110 && y <= 180 && x >= 15 && x <= 30) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-		
-			else if (y >= 110 && y <= 180 && x >= 290 && x <= 305) {
-				setpixel(ig, w, x, y, 0, 0, 200);
-			}
-			
-
-
-		}
+	for (u = 0; u < 1; u= u + 0.2) {
+		xq = ax * u*u*u + bx * u*u + cx * u + dx;
+		yq = ay * u*u*u + by * u*u + cy * u + dy;
+		v = u + 0.2;
+		xqq = ax * v*v*v + bx * v*v + cx * v + dx;
+		yqq = ay * v*v*v + by * v*v + cy * v + dy;
+	   LineDDA(xq,yq,xqq,yqq);
 	}
+	
+
 
 	
 }

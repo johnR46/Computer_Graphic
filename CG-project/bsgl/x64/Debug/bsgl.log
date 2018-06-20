@@ -1,0 +1,9 @@
+﻿  apirend.cpp
+e:\cg\lab01\cg-project\apirend.cpp(110): warning C4244: 'return': conversion from 'WPARAM' to 'int', possible loss of data
+  phk_opengl.cpp
+e:\cg\lab01\cg-project\phk_opengl.cpp(110): warning C4312: 'type cast': conversion from 'int' to 'HMENU' of greater size
+e:\cg\lab01\cg-project\phk_opengl.cpp(342): warning C4312: 'type cast': conversion from 'LONG' to 'phkOpenGLengine *' of greater size
+e:\cg\lab01\cg-project\phk_opengl.cpp(347): warning C4311: 'type cast': pointer truncation from 'phkOpenGLengine *' to 'LONG'
+e:\cg\lab01\cg-project\phk_opengl.cpp(347): warning C4302: 'type cast': truncation from 'phkOpenGLengine *' to 'LONG'
+  Generating Code...
+  bsgl.vcxproj -> E:\CG\lab01\CG-project\bsgl\x64\Debug\bsgl.exe
