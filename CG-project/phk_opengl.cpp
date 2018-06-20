@@ -35,6 +35,9 @@ phkOpenGLengine::phkOpenGLengine ()
     m_fDir      = 1.0f;
 
 	m_isanimate	= 0;
+	 xRotated = 0 ;
+	yRotated = 0;
+	zRotated = 0;
 }
 
 void phkOpenGLengine::purge (void)
@@ -114,13 +117,26 @@ void phkOpenGLengine::Create (HWND hwndParent, int id, LPRECT rc)
     initopengl ();
 }
 
+void phkOpenGLengine::idle(void)
+{
+	int x;
+	for (x = 0; x < 100; x++) {
+		xRotated = xRotated + 0.01;
+		yRotated += 0.01;
+		zRotated += 0.01;
+	
+		
+	}
+	
+}
+
 
 void phkOpenGLengine::resize (int cx, int cy)
 {
     ::glMatrixMode (GL_PROJECTION);
     ::glLoadIdentity ();
 
-    ::gluPerspective (30.0, (float) cx/cy, 0.001, 40.0);
+    ::gluPerspective (80, (float) cx/cy, 0.001, 40.0);
     ::glViewport (0, 0, cx, cy);
 
     ::glMatrixMode (GL_MODELVIEW);
@@ -195,25 +211,23 @@ void phkOpenGLengine::mouse_update (float cx, float cy)
 
 void phkOpenGLengine::recoverRigidDisplay (void)
 {
-    ::glTranslatef (-0.5f, -0.5f, -3.00f);
-    ::glRotatef (m_rot [0], 1.0f, 0.0f, 0.0f);
-    ::glRotatef (m_rot [1], 0.0f, 1.0f, 0.0f);
+    ::glTranslatef (-0.5f, 0.3f, -3.00f);   // X Y Z 
+    ::glRotatef (xRotated, 1.0f, 0.0f, 0.0f);
+    ::glRotatef (yRotated, 0.0f, 1.0f, 0.0f);
 }
 
 void phkOpenGLengine::display (void)
 {
     ::glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     ::glPushMatrix ();
-
+	idle();
     recoverRigidDisplay ();
-
-	drawaxes ();
-
+    drawaxes ();
     ::glFlush();
     ::glPopMatrix ();
-
     ::SwapBuffers (m_hDC);          /* nop if singlebuffered */
 }
+
 
 void phkOpenGLengine::initopengl (void)
 {
@@ -244,7 +258,7 @@ void phkOpenGLengine::initopengl (void)
 
     GetClientRect (m_hWnd, &rcclient);
 
-//  ::glClearColor (1.0f, 1.0f, 1.0f, 0.0f);
+ // ::glClearColor (1.0f, 1.0f, 1.0f, 0.0f);
     resize (rcclient.right, rcclient.bottom);
     initlighting ();
 }
@@ -252,7 +266,7 @@ void phkOpenGLengine::initopengl (void)
 void phkOpenGLengine::initlighting (void)
 {
     //  initalize light
-    GLfloat ambient [4]     = {  0.2f, 0.2f, 0.2f, 1.0f };
+    GLfloat ambient [4]     = {  1.0f, 2.0f, -2.0, -2.0f };
     GLfloat diffuse [4]     = {  0.8f, 0.8f, 0.8f, 1.0f };
     GLfloat position0 []    = { -0.2f, 0.5f, +5.0f, 0.0f };
     GLfloat position1 []    = { -0.2f, 0.5f, -5.0f, 0.0f };
@@ -291,21 +305,26 @@ LRESULT phkOpenGLengine::WndProc (UINT iMessage, WPARAM wParam, LPARAM lParam)
 
     switch (iMessage)
     {
-        case WM_CREATE      :
+				case WM_CREATE:
+					// idle();
+					// display();
+
                                 break;
 
 		case WM_TIMER		:	if (m_isanimate)
 								{
-									m_rot [0] += 1.0f*(rand ()/RAND_MAX) - 0.5f;
-									m_rot [1] -= 1.0f*(rand ()/RAND_MAX) - 0.5f;
+								//	m_rot [0] += 1.0f*(rand ()/RAND_MAX) - 0.5f;
+//									m_rot [1] -= 1.0f*(rand ()/RAND_MAX) - 0.5f;
 
-									clamp (m_rot[0]);
-									clamp (m_rot[1]);
-									display ();
+									//clamp (m_rot[0]);
+									//clamp (m_rot[1]);
+								//	display ();
 								}
 								break;
 
-        case WM_PAINT       :   display ();
+        case WM_PAINT       :  	
+								
+							
                                 break;
 
         case WM_SIZE        :   resize (LOWORD(lParam), HIWORD(lParam));
@@ -315,33 +334,42 @@ LRESULT phkOpenGLengine::WndProc (UINT iMessage, WPARAM wParam, LPARAM lParam)
         case WM_LBUTTONDOWN :   SetCapture (m_hWnd);
                                 m_px    =   (float) LOWORD (lParam);
                                 m_py    =   (float) HIWORD (lParam);
-                                m_nDrag = 1;
+								m_nDrag = 1;
+								
                                 break;
 
         case WM_LBUTTONUP   :   ReleaseCapture ();
                                 m_px    = 0.0f;
                                 m_py    = 0.0f;
-                                m_nDrag = 0;
+								m_nDrag = 0;
+
+						
+									
+								
+								
                                 break;
 
         case WM_MOUSEMOVE   :   if (m_nDrag)
                                 {
-                                    int mx, my;
-
-                                    mx = LOWORD (lParam);
-                                    my = HIWORD (lParam);
-
-                                    if (mx & (1 << 15)) mx -= (1 << 16);
-                                    if (my & (1 << 15)) my -= (1 << 16);
-
-                                    mouse_update ((float) mx, (float) my);
-                                    display ();
+			
+        
+									
+									
                                 }
                                 break;
 
         case WM_DESTROY     :   purge ();
                                 break;
         default             :
+			
+
+			idle();
+			display();
+			//xRotated = 0;
+
+			//yRotated = 0;
+
+
             return DefWindowProc (m_hWnd, iMessage, wParam, lParam);
     }
 
@@ -401,6 +429,8 @@ LRESULT FAR PASCAL /*_export*/ phkOpenGLDefWndProc (HWND hwnd, UINT message, WPA
                             break;
 
         default         :   if (pOpenGL) pOpenGL->WndProc (message, wParam, lParam);
+
+			
                             break;
    }
 

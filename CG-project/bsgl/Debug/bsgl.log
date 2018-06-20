@@ -1,2 +1,5 @@
 ﻿  phk_opengl.cpp
+e:\cg\lab01\cg-project\phk_opengl.cpp(124): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+e:\cg\lab01\cg-project\phk_opengl.cpp(125): warning C4305: '+=': truncation from 'double' to 'float'
+e:\cg\lab01\cg-project\phk_opengl.cpp(126): warning C4305: '+=': truncation from 'double' to 'float'
   bsgl.vcxproj -> E:\CG\lab01\CG-project\bsgl\Debug\bsgl.exe

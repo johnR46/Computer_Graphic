@@ -51,8 +51,7 @@ int DrawChildWindows (int idCtl, const DRAWITEMSTRUCT FAR * lpdist)
     return ret;
 }
 
-int PASCAL WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd,
-                          int nCmdShow)
+int PASCAL WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmd,int nCmdShow)  // main Program
 {
     static char szAppName[] = "523652: Advanced Computer Graphics" ;
     HWND        hwnd ;
@@ -132,6 +131,7 @@ LRESULT FAR PASCAL WndProc (HWND hwnd, UINT message, WPARAM wParam, LPARAM lPara
                                         break;
 
             case MIC_U_EXIT         :   DestroyWindow( hwnd );
+				
                                         break;
 
         }

@@ -17,11 +17,14 @@ public:
    ~phkOpenGLengine ();
 
 public:
+	
 	void	registerClass (HINSTANCE hInst);
 	void	unregisterClass (HINSTANCE hInst);
 	void	Create (HWND hwndParent, int id, LPRECT rc);
+	void    idle(void);
 	void	initopengl (void);
 	void	purge (void);
+	
 	HWND	GetHandle (void) { return m_hWnd; }	
 
 	LRESULT		WndProc (UINT iMessage, WPARAM wParam, LPARAM lParam);
@@ -49,6 +52,9 @@ protected:
 	float		m_fDir;
 
 	int			m_isanimate;
+	float		 xRotated;
+	float		yRotated;
+	float		zRotated;
 };
 
 #endif
